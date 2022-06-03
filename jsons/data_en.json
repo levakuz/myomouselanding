@@ -1,3 +1,27 @@
 {
-  "language": "en"
+  "How_it_works": "How it works?",
+  "Application_area": "Application area",
+  "Our_team": "Our team",
+  "Main_description":"We have developed a cutting-edge device that can reimagine your experience of interacting with technological objects.",
+  "order": "Order",
+  "How_it_works_descr": "Incredible control, ultra-precise bracelets track every impulse of your body. The precision control device converts your finger movements using galvanic skin and volumetric sensors into electrical control signals.",
+  "UAV_Control": "UAV Control",
+  "Application_area_descr": "Converts your finger movements using galvanic and volumetric sensors into electrical control signals. Incredible control, ultra-precise wristbands track your body's every impulse. We have developed a cutting-edge device that can reimagine your experience of interacting with technological objects.",
+  "Use_as_mouse": "Use as a mouse",
+  "UGV_control": "UGV Control",
+  "Kozulyaev": "Alexey Kozulyaev",
+  "Kozulyaev_descr": "Promotion, marketing, financing",
+  "Konotopova": "Elena Konotopova",
+  "Konotopova_descr": "Patent and organizational issues",
+  "Saveliev": "Anton Saveliev",
+  "Saveliev_descr": "Development and production",
+  "Andreeva": "Polina Andreeva",
+  "Andreeva_descr": "Sales and project coordination",
+  "Borshevsky": "Ivan Borshevsky",
+  "Borshevsky_descr": "Cognitive research and gestural signals",
+  "form_header": "Would you like to order a MyoMouse device?",
+  "leave_request": "Just leave a request!",
+  "enter_name": "Enter your name",
+  "phone_number": "Phone number",
+  "submit": "Submit"
 }
