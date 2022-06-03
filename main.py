@@ -3,7 +3,6 @@ from fastapi import FastAPI, Request, BackgroundTasks
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
 
 app = FastAPI()
 
