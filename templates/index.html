@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ url_for('static',path="/output.css")}}" rel="stylesheet">
     <title>MyoMouse</title>
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path="/logo.jpg") }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path="/logo.jpeg") }}">
 
 </head>
 <body class="bg-black" style="box-sizing: border-box">
 <div class="content " style="box-sizing: border-box; overflow-y: hidden">
     <div class="h-16 items-center flex flex-row mt-2 relative">
-        <img src="{{ url_for('static',path="/logo.jpg")}}" class="z-0 logo ml-0 xl:ml-72 w-8 h-8" style="width: 5rem; height: 5rem"/>
+        <img src="{{ url_for('static',path="/logo.jpeg")}}" class="z-0 logo ml-0 lg:ml-60 w-8 h-8" style="width: 5rem; height: 5rem"/>
         <div class="absolute right-0 ml-0 z-1 gradient-bg-pink"></div>
         <nav class="hidden sm:inline-flex flex-row  items-center justify-end absolute right-0 z-10" style="justify-self: flex-end">
             <a class="xl:text-base text-white mr-10 hover:underline" href="#how-it-works">{{ How_it_works }}</a>
             <a class="xl:text-base text-white mr-10 hover:underline" href="#application-area">{{ Application_area }}</a>
+            <a class="xl:text-base text-white mr-10 hover:underline" href="#how_it_possible">{{ How_it_possible }}</a>
             <a class="xl:text-base text-white mr-10  hover:underline" href="#our-team">{{ Our_team }}</a>
             <div class="mr-10 hover:underline"  style="width: 24px; height: 0px; border: 1px solid #FFFFFF;transform: rotate(90deg);"></div>
             <button class="text-white flex flex-row mr-40 items-center hover:animate-pulse">
@@ -25,8 +26,8 @@
         </nav>
     </div>
     <section id="home" class="z-0  items-center">
-        <div class=" flex flex-col sm:flex-row mt-0 sm:mt-10  lg:ml-24 items-center justify-center">
-            <div class=" lg:w-1/2 flex flex-col z-10 items-center lg:items-baseline justify-center">
+        <div class=" flex flex-col sm:flex-row mt-0 sm:mt-10 items-center  lg:ml-64 lg:mr-64 ">
+            <div class=" lg:w-1/2 flex flex-col z-10 lg:items-baseline items-center justify-center">
                 <h1 class="text-left text-5xl xl:text-8xl text-white font-bold z-10">MyoMouse</h1>
                 <p class="text-center sm:text-left w-3/4 text-base 2xl:text-base text-white mt-7 p-0">{{ Main_description }}</p>
                 <button  class="w-32 h-7 xl:w-32 xl:h-11 mt-10 button-gradient hover:bg-transparent items-center justify-center" >
@@ -35,17 +36,39 @@
                     </a>
                 </button>
             </div>
-            <div class="mt-0 pb-30 -z-1">
-                <div  class="wrapper" id="mainarea"
-                      style="height: 20rem; width: 27rem;"
-                >
-                    <canvas  tabindex=0 id="canvas" class="emscripten" oncontextmenu="event.preventDefault()" style="display:none; height: 18rem !important;"/>
+            <div class="flex flex-col items-center">
+            <div class="flex flex-row mt-10 justify-between content-between z-10 absolute bottom-0 lg:bottom-1/3">
+                    <button id="white-line-button" class="bg-white mr-2" style="border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="grey-line-button" class="mr-2" style=" background-color: #9e9e9e; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="black-line-button" class="bg-white mr-2" style="background-color: #212121; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="blue-line-button" class="bg-white mr-2" style="background-color: #3f51b5; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="green-line-button" class="bg-white mr-2" style="background-color: #4caf50; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="red-line-button" class="bg-white mr-2" style="background-color: #f44336; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="orange-line-button" class="bg-white mr-2" style="background-color: #ff5722; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="yellow-line-button" class="bg-white mr-2" style="background-color: #fbc02d; border-radius: 10px; width: 20px; height: 20px"></button>
+            </div>
+            <div class="flex flex-row">
+                <div class="mt-0  mr-25" id="canvas_wrapper" style="padding-right: 30px; padding-bottom: 50px">
+                    <div id="loading_status_wrapper" class="flex flex-col items-center justify-center">
+                        <p class="text-white">{{ loading_text }}</p>
+                        <progress id="loading_status" max="100" value="0" style="border-radius: 10px; width: 80%; "></progress>
+                    </div>
                 </div>
-                <div  style="display: none" class="col-sm-2 text-center"><button type="button" class="btn btn-primary" id="fullscreen_request"></button></div>
+                <div class="flex flex-col z-10 align-middle items-center justify-center lg:mb-24">
+                        <button id="white-band-button" class="bg-white mt-2" style="border-radius: 10px; width: 20px; height: 20px"></button>
+                        <button id="grey-band-button" class="mt-2" style=" background-color: #9e9e9e; border-radius: 10px; width: 20px; height: 20px"></button>
+                        <button id="black-band-button" class="bg-white mt-2" style="background-color: #212121; border-radius: 10px; width: 20px; height: 20px"></button>
+                        <button id="blue-band-button" class="bg-white mt-2" style="background-color: #3f51b5; border-radius: 10px; width: 20px; height: 20px"></button>
+                        <button id="green-band-button" class="bg-white mt-2" style="background-color: #4caf50; border-radius: 10px; width: 20px; height: 20px"></button>
+                        <button id="red-band-button" class="bg-white mt-2" style="background-color: #f44336; border-radius: 10px; width: 20px; height: 20px"></button>
+                        <button id="orange-band-button" class="bg-white mt-2" style="background-color: #ff5722; border-radius: 10px; width: 20px; height: 20px"></button>
+                        <button id="yellow-band-button" class="bg-white mt-2" style="background-color: #fbc02d; border-radius: 10px; width: 20px; height: 20px"></button>
+                </div>
             </div>
         </div>
+        </div>
         <a class="2xl:mt-60 absolute bottom-10 animate-bounce" href="#how-it-works">
-            <img src="{{ url_for('static',path='Arrow%202.svg')}}"/>
+            <img class="hidden lg:flex" src="{{ url_for('static',path='Arrow%202.svg')}}"/>
         </a>
     </section>
     <section id="how-it-works">
@@ -56,63 +79,56 @@
 <!--        <div id="canvas-wrapper" style="" class="items-center w-1/2 h-screen mt-72">-->
 <!--            <canvas class="ml-0 2xl:ml-0 w-1/2"  id="hero-lightpass"></canvas>-->
 <!--        </div>-->
-        <img src="../static/mm.png" class="mt-52 absolute -z-1" style="width: 30rem; height: 30rem">
+        <img src="../static/mm.png" class="mt-80 absolute -z-1" style="width: 30rem; height: 30rem">
     </section>
     <section id="application-area" class="h-fit relative ">
         <h2 class=" mt-10 text-white z-10">{{ Application_area }}</h2>
         <div class="gradient-bg-pink z-1 absolute right-0"></div>
         <div class=" hidden lg:grid lg:grid-cols-2 gap-6 2xl:gap-44 mt-10 2xl:mt-40 lg:ml-24 2xl:ml-32 lg:mr-32 items-center">
             <div class=" flex flex-col items-center justify-center lg:items-start">
-                <h3 class="text-white z-10">{{ UAV_Control }}</h3>
-                <p class="mt-10 text-white w-3/4 xl:w-full text-center lg:text-left z-10">{{ Application_area_descr }}</p>
-            </div>
-            <video class="w-full z-10" controls>
-                <source src="{{ url_for('static', path='/video/uav.mp4')}}" type="video/mp4">
-            </video>
-            <video class="w-full" controls>
-                <source src="{{ url_for('static', path='/video/Питерлэнд%20%20нейромашинки%202.mp4')}}" type="video/mp4">
-            </video>
-            <div class=" flex flex-col items-center justify-center lg:items-start">
                 <h3 class="text-white">{{ Use_as_mouse }}</h3>
                 <p class=" mt-10 text-white">{{ Application_area_descr }}</p>
             </div>
+            <iframe class="w-full z-10" width="560" height="315" src="https://www.youtube.com/embed/LKMlw2pHpDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="w-full z-10" width="560" height="315" src="https://www.youtube.com/embed/LKMlw2pHpDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class=" flex flex-col items-center justify-center lg:items-start">
+                <h3 class="text-white z-10">{{ UAV_Control }}</h3>
+                <p class="mt-10 text-white w-3/4 xl:w-full text-center lg:text-left z-10">{{ UAV_Control_descr }}</p>
+            </div>
             <div>
                 <h3 class="text-white">{{ UGV_control }}</h3>
-                <p class="mt-10 text-white">{{ Application_area_descr }}</p>
+                <p class="mt-10 text-white">{{ UGV_control_descr }}</p>
             </div>
-            <video class="w-full" controls>
-                <source src="{{ url_for('static',path='/video/agv1.mp4')}}" type="video/mp4">
-            </video>
+            <iframe width="560" class="w-full" height="315" src="https://www.youtube.com/embed/2ka9743pCmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class=" lg:hidden w-full z-10">
             <div class="flex flex-col items-center z-10">
                 <div class="flex flex-col items-center z-10">
-                    <h3 class="text-white text-center">{{ Use_as_mouse }}</h3>
+                    <h3 class=" mt-10 text-white text-center">{{ Use_as_mouse }}</h3>
                     <p class="mt-10 text-white text-center">{{ Application_area_descr }}</p>
                 </div>
-                <video class="w-full h-1/2 mt-10" controls>
-                    <source src="{{ url_for('static', path='/video/Питерлэнд%20%20нейромашинки%202.mp4')}}" type="video/mp4">
-                </video>
+                <iframe class="w-full mt-10" style="height: 20rem" width="560" height="315" src="https://www.youtube.com/embed/LKMlw2pHpDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="flex flex-col items-center z-10 mt-20">
                 <div class="flex flex-col items-center z-10">
                     <h3 class="text-white text-center">{{ UAV_Control }}</h3>
-                    <p class="mt-10 text-white text-center">{{ Application_area_descr }}</p>
+                    <p class="mt-10 text-white text-center">{{ UAV_Control_descr }}</p>
                 </div>
-                <video class="w-full h-1/2 mt-10" controls>
-                    <source src="{{ url_for('static',path='/video/uav.mp4')}}" type="video/mp4">
-                </video>
+                <iframe class="w-full mt-10" style="height: 20rem" width="560" height="315" src="https://www.youtube.com/embed/LKMlw2pHpDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="flex flex-col items-center z-10 mt-20">
                 <div class="flex flex-col items-center z-10">
                     <h3 class="text-white text-center">{{ UGV_control }}</h3>
-                    <p class="mt-10 text-white text-center">{{ Application_area_descr }}</p>
+                    <p class="mt-10 text-white text-center">{{ UGV_control_descr }}</p>
                 </div>
-                <video class="w-full h-1/2 mt-10" controls>
-                    <source src="{{ url_for('static',path='/video/agv1.mp4')}}" type="video/mp4">
-                </video>
+                <iframe class="w-full mt-10" style="height: 20rem" src="https://www.youtube.com/embed/2ka9743pCmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
+    </section>
+    <section id="how_it_possible">
+        <h2 class="text-white mt-10 absolute">{{ How_it_possible }}</h2>
+        <div class="gradient-bg-blue z-10"></div>
+        <p class=" absolute mt-32 text-white  w-3/4 lg:w-1/2 z-10" style="white-space: pre-wrap;">{{ How_it_possible_descr }}
     </section>
     <section id="our-team"  class="flex flex-col relative h-fit pb-20">
         <h2 class=" mt-10 text-white z-10">{{ Our_team }}</h2>
@@ -151,7 +167,7 @@
         <div class="mt-24 xl:ml-32 xl:mr-32 xl:mb-24 flex flex-col">
             <div class="flex flex-col">
                 <h3 class="text-black text-xl xl:text-2xl text-center xl:text-left">{{ form_header }} </h3>
-                <h4 class="text-black pt-2">{{ leave_request }}</h4>
+                <h4 class="text-black pt-2 mx-auto">{{ leave_request }}</h4>
             </div>
             <form id="form" name="form" class="hidden lg:grid grid-cols-4 gap-6 pt-6 items-center">
                 <p>{{ enter_name }}</p>
@@ -166,8 +182,8 @@
                     <h4  class="text-white text-base">{{ submit }}</h4>
                 </button>
             </form>
-            <form id="mobile_form" name="form" class="flex flex-col lg:hidden mt-20">
-                <p>{{ enter_name }}</p>
+            <form id="mobile_form" name="form" class="flex mx-auto flex-col lg:hidden mt-20">
+                <p class="text-left">{{ enter_name }}</p>
                 <input id="name_mobile" type="text" class="h-10 w-56 2xl:w-72" style="border: 1px solid #DBDBDB;border-radius: 8px;"/>
                 <p>{{ phone_number }}*</p>
                 <input id="phone_mobile" type="tel" required placeholder="+7(xxx)xxx-xx-xx" class="h-10 w-56 2xl:w-72" style="border: 1px solid #DBDBDB;border-radius: 8px;">
@@ -180,11 +196,53 @@
         </div>
     </section>
     </div>
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
-    <script src="{{ url_for('static',path='/configurator/MMv1.UE4.js')}}"></script>
     <script src="{{ url_for('static',path='/main.js')}}"></script>
+            <script type="module">
+
+                import * as THREE from './static/js/three.module.js';
+                import { APP } from './static/js/app.js';
+                import { VRButton } from './static/js/VRButton.js';
+
+                window.THREE = THREE; // Used by APP Scripts.
+                window.VRButton = VRButton; // Used by APP Scripts.
+
+                var canvas_wrapper = document.getElementById('canvas_wrapper')
+                let loading_status_wrapper = document.getElementById('loading_status_wrapper')
+                if (window.screen.width >= 1700){
+                        loading_status_wrapper.style.width = '640px';
+                        loading_status_wrapper.style.height = '640px';
+                    }
+                    else
+                    {
+                        loading_status_wrapper.style.width = '300px';
+                        loading_status_wrapper.style.height = '300px';
+                    }
+                var loader = new THREE.FileLoader();
+                {#loader.load( './static/app.json', function ( text ) {#}
+
+                    var player = new APP.Player();
+                    {#player.load( JSON.parse( text ) );#}
+
+
+
+
+                    {#player.play();#}
+
+
+
+                {#function (xhr) {#}
+                {#    let loading_status = document.getElementById('loading_status')#}
+                {#    const node = document.createTextNode((xhr.loaded / xhr.total * 100).toFixed(2) + '% loaded')#}
+                {#    loading_status.value= (xhr.loaded / xhr.total * 100)#}
+                {#    }#}
+                {#);#}
+
+
+
+
+
+            </script>
 </body>
 </html>
 
@@ -242,10 +300,34 @@ section{
 /*    max-height: 100vh;*/
 /*    max-width: 100vw;*/
 /*}*/
+canvas{
+    justify-self: center;
+    {#padding-left: 20rem;#}
+
+}
 /*.fixed-canvas{*/
 /*    position: fixed;*/
 /*}*/
 .team-member{
 
+}
+progress{
+    align-self: center;
+    justify-self: center;
+    margin-top: 5rem;
+}
+progress[value]::-webkit-progress-bar {
+      background-color: #000000;
+      border-radius: 2px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+        color: -webkit-linear-gradient(99.43deg, #5243FD 7.43%, #8A79F2 59.53%, #B643FD 91.49%);
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+progress[value]::-webkit-progress-value {
+  position: relative;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  border-radius:5px;
+  background: linear-gradient(99.43deg, #5243FD 7.43%, #8A79F2 59.53%, #B643FD 91.49%);
+  animation: animate-stripes 5s linear infinite;
 }
 </style>
