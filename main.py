@@ -16,12 +16,12 @@ templates = Jinja2Templates(directory="templates")
 async def read_items(request: Request, language: str = "ru"):
     if language == "ru":
         other_language_ref = '/en'
-        other_language = 'En'
+        other_language = 'Ru'
         with open('jsons/data_ru.json') as json_file:
             json_language = json.load(json_file)
     else:
         other_language_ref = '/ru'
-        other_language = 'Ru'
+        other_language = 'En'
         with open('jsons/data_en.json') as json_file:
             json_language = json.load(json_file)
     json_language["other_language_ref"] = other_language_ref

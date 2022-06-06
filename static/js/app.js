@@ -67,7 +67,7 @@ var APP = {
 				scene.add(gltf.cameras[0])
 				if (window.screen.width >= 1700){
 					// player.setSize( 840, 640);
-					renderer.setSize(640, 640)
+					renderer.setSize(600, 600)
 				}
 				else
 				{

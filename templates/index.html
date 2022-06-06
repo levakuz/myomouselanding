@@ -26,29 +26,19 @@
         </nav>
     </div>
     <section id="home" class="z-0  items-center">
-        <div class=" flex flex-col sm:flex-row mt-0 sm:mt-10 items-center  lg:ml-64 lg:mr-64 ">
+        <div class=" flex flex-col sm:flex-row mt-0 sm:mt-5 items-center  lg:ml-64 lg:mr-64 ">
             <div class=" lg:w-1/2 flex flex-col z-10 lg:items-baseline items-center justify-center">
                 <h1 class="text-left text-5xl xl:text-8xl text-white font-bold z-10">MyoMouse</h1>
                 <p class="text-center sm:text-left w-3/4 text-base 2xl:text-base text-white mt-7 p-0">{{ Main_description }}</p>
-                <button  class="w-32 h-7 xl:w-32 xl:h-11 mt-10 button-gradient hover:bg-transparent items-center justify-center" >
-                    <a href="#form" class="text-sm xl:text-base animate-pulse hover:text-white text-custom-blue ">
+                <button class="w-32 h-7 xl:w-32 xl:h-11 mt-10 button-gradient hover:bg-transparent items-center justify-center" >
+                    <a href="#form_section" class="text-sm xl:text-base animate-pulse hover:text-white text-custom-blue ">
                         {{ order }}
                     </a>
                 </button>
             </div>
             <div class="flex flex-col items-center">
-            <div class="flex flex-row mt-10 justify-between content-between z-10 absolute bottom-0 lg:bottom-1/3">
-                    <button id="white-line-button" class="bg-white mr-2" style="border-radius: 10px; width: 20px; height: 20px"></button>
-                    <button id="grey-line-button" class="mr-2" style=" background-color: #9e9e9e; border-radius: 10px; width: 20px; height: 20px"></button>
-                    <button id="black-line-button" class="bg-white mr-2" style="background-color: #212121; border-radius: 10px; width: 20px; height: 20px"></button>
-                    <button id="blue-line-button" class="bg-white mr-2" style="background-color: #3f51b5; border-radius: 10px; width: 20px; height: 20px"></button>
-                    <button id="green-line-button" class="bg-white mr-2" style="background-color: #4caf50; border-radius: 10px; width: 20px; height: 20px"></button>
-                    <button id="red-line-button" class="bg-white mr-2" style="background-color: #f44336; border-radius: 10px; width: 20px; height: 20px"></button>
-                    <button id="orange-line-button" class="bg-white mr-2" style="background-color: #ff5722; border-radius: 10px; width: 20px; height: 20px"></button>
-                    <button id="yellow-line-button" class="bg-white mr-2" style="background-color: #fbc02d; border-radius: 10px; width: 20px; height: 20px"></button>
-            </div>
             <div class="flex flex-row">
-                <div class="mt-0  mr-25" id="canvas_wrapper" style="padding-right: 30px; padding-bottom: 50px">
+                <div class="mt-0  mr-25" id="canvas_wrapper">
                     <div id="loading_status_wrapper" class="flex flex-col items-center justify-center">
                         <p class="text-white">{{ loading_text }}</p>
                         <progress id="loading_status" max="100" value="0" style="border-radius: 10px; width: 80%; "></progress>
@@ -65,10 +55,20 @@
                         <button id="yellow-band-button" class="bg-white mt-2" style="background-color: #fbc02d; border-radius: 10px; width: 20px; height: 20px"></button>
                 </div>
             </div>
+            <div class="flex flex-row justify-between content-between z-10 bottom-0 lg:bottom-1/3">
+                    <button id="white-line-button" class="bg-white mr-2" style="border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="grey-line-button" class="mr-2" style=" background-color: #9e9e9e; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="black-line-button" class="bg-white mr-2" style="background-color: #212121; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="blue-line-button" class="bg-white mr-2" style="background-color: #3f51b5; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="green-line-button" class="bg-white mr-2" style="background-color: #4caf50; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="red-line-button" class="bg-white mr-2" style="background-color: #f44336; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="orange-line-button" class="bg-white mr-2" style="background-color: #ff5722; border-radius: 10px; width: 20px; height: 20px"></button>
+                    <button id="yellow-line-button" class="bg-white mr-2" style="background-color: #fbc02d; border-radius: 10px; width: 20px; height: 20px"></button>
+            </div>
         </div>
         </div>
         <a class="2xl:mt-60 absolute bottom-10 animate-bounce" href="#how-it-works">
-            <img class="hidden lg:flex" src="{{ url_for('static',path='Arrow%202.svg')}}"/>
+            <img class="" src="{{ url_for('static',path='Arrow%202.svg')}}"/>
         </a>
     </section>
     <section id="how-it-works">
@@ -101,38 +101,40 @@
             </div>
             <iframe width="560" class="w-full" height="315" src="https://www.youtube.com/embed/2ka9743pCmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div class=" lg:hidden w-full z-10">
-            <div class="flex flex-col items-center z-10">
+        <div class=" lg:hidden w-full z-10 ">
+            <div class="flex flex-col items-center z-10 mr-2 ml-2">
                 <div class="flex flex-col items-center z-10">
                     <h3 class=" mt-10 text-white text-center">{{ Use_as_mouse }}</h3>
                     <p class="mt-10 text-white text-center">{{ Application_area_descr }}</p>
                 </div>
                 <iframe class="w-full mt-10" style="height: 20rem" width="560" height="315" src="https://www.youtube.com/embed/LKMlw2pHpDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="flex flex-col items-center z-10 mt-20">
+            <div class="flex flex-col items-center z-10 mt-20 mr-2 ml-2">
                 <div class="flex flex-col items-center z-10">
                     <h3 class="text-white text-center">{{ UAV_Control }}</h3>
-                    <p class="mt-10 text-white text-center">{{ UAV_Control_descr }}</p>
+                    <p class="mt-10 text-white w-full">{{ UAV_Control_descr }}</p>
                 </div>
                 <iframe class="w-full mt-10" style="height: 20rem" width="560" height="315" src="https://www.youtube.com/embed/LKMlw2pHpDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="flex flex-col items-center z-10 mt-20">
+            <div class="flex flex-col items-center z-10 mt-20 mr-2 ml-2">
                 <div class="flex flex-col items-center z-10">
                     <h3 class="text-white text-center">{{ UGV_control }}</h3>
-                    <p class="mt-10 text-white text-center">{{ UGV_control_descr }}</p>
+                    <p class=" mt-10 text-white text-center">{{ UGV_control_descr }}</p>
                 </div>
                 <iframe class="w-full mt-10" style="height: 20rem" src="https://www.youtube.com/embed/2ka9743pCmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
-    <section id="how_it_possible">
-        <h2 class="text-white mt-10 absolute">{{ How_it_possible }}</h2>
-        <div class="gradient-bg-blue z-10"></div>
-        <p class=" absolute mt-32 text-white  w-3/4 lg:w-1/2 z-10" style="white-space: pre-wrap;">{{ How_it_possible_descr }}
+    <section id="how_it_possible" class="h-fit relative lg:h-screen  items-center">
+        <h2 class="mt-32 text-white h-1/3 z-10 text-center">{{ How_it_possible }}</h2>
+        <div class="absolute gradient-bg-blue z-10"></div>
+        <div class="ml-2 mr-2 mt-32 2xl:mt-40 lg:ml-24 2xl:ml-32 lg:mr-32">
+            <p class="mt-10 text-white w-full z-10" style="white-space: pre-wrap;">{{ How_it_possible_descr }}
+        </div>
     </section>
-    <section id="our-team"  class="flex flex-col relative h-fit pb-20">
-        <h2 class=" mt-10 text-white z-10">{{ Our_team }}</h2>
-        <div class="grid grid-cols-2 xl:grid-cols-3 mt-5 2xl:gap-32 gap-10 2xl:mt-20 2xl:mt-44 z-10">
+    <section id="our-team"  class="flex flex-col relative pb-20 2xl:h-fit">
+        <h2 class=" mt-10 text-white z-10 text-center" style="text-align: center;">{{ Our_team }}</h2>
+        <div class="grid grid-cols-2 xl:mt-20 xl:grid-cols-3 mt-5 2xl:gap-32 gap-10 2xl:h-fit 2xl:mt-20 2xl:mt-44 z-10">
             <div class="team-member items-center justify-center align-middle flex flex-col">
                 <img class="h-1/2 w-1/2 2xl:h-fit 2xl:w-fit" src="{{ url_for('static',path='/KozylyaevAvatar.svg')}}"/>
                 <h4 class="pt-6 text-white text-center">{{ Kozulyaev }}</h4>
@@ -167,7 +169,7 @@
         <div class="mt-24 xl:ml-32 xl:mr-32 xl:mb-24 flex flex-col">
             <div class="flex flex-col">
                 <h3 class="text-black text-xl xl:text-2xl text-center xl:text-left">{{ form_header }} </h3>
-                <h4 class="text-black pt-2 mx-auto">{{ leave_request }}</h4>
+                <h4 class="text-black pt-2 mx-auto lg:mx-0">{{ leave_request }}</h4>
             </div>
             <form id="form" name="form" class="hidden lg:grid grid-cols-4 gap-6 pt-6 items-center">
                 <p>{{ enter_name }}</p>
@@ -178,7 +180,7 @@
                 <input id="phone" type="tel" required placeholder="+X(XXX)XXX-XX-XX" class="h-10 w-56 2xl:w-72" style="border: 1px solid #DBDBDB;border-radius: 8px;"/>
                 <input id="email" type="email" class="h-10 w-56 2xl:w-72" style="border: 1px solid #DBDBDB;border-radius: 8px;"/>
                 <button type="submit" onclick="send_form_data()" class="bg-black w-56 h-14" style="border-radius: 32px">
-                    <a href="#form"></a>
+                    <a href="#form_section"></a>
                     <h4  class="text-white text-base">{{ submit }}</h4>
                 </button>
             </form>
@@ -303,6 +305,7 @@ section{
 canvas{
     justify-self: center;
     {#padding-left: 20rem;#}
+    padding: 0;
 
 }
 /*.fixed-canvas{*/
@@ -329,5 +332,8 @@ progress[value]::-webkit-progress-value {
   border-radius:5px;
   background: linear-gradient(99.43deg, #5243FD 7.43%, #8A79F2 59.53%, #B643FD 91.49%);
   animation: animate-stripes 5s linear infinite;
+}
+p{
+    white-space: pre-wrap
 }
 </style>

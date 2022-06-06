@@ -641,6 +641,9 @@ a{
 .mt-24 {
   margin-top: 6rem;
 }
+.ml-2 {
+  margin-left: 0.5rem;
+}
 
 .block {
   display: block;
@@ -996,11 +999,27 @@ a{
   .lg\:bottom-1\/3 {
     bottom: 33.333333%;
   }
+  .lg\:bottom-1\/4 {
+    bottom: 25%;
+  }
+  .lg\:bottom-14 {
+    bottom: 3.5rem;
+  }
   .lg\:mr-24 {
     margin-right: 6rem;
   }
   .lg\:ml-40 {
     margin-left: 10rem;
+  }
+    .lg\:right-0 {
+    right: 0px;
+  }
+  .lg\:right-10 {
+    right: 2.5rem;
+  }
+  .lg\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .lg\:mr-32 {
@@ -1056,6 +1075,9 @@ a{
     font-size: 1rem;
     line-height: 1.5rem;
   }
+  .lg\:h-screen {
+    height: 100vh;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1070,6 +1092,9 @@ a{
   }
   .xl\:ml-40 {
     margin-left: 10rem;
+  }
+  .xl\:mt-20 {
+    margin-top: 5rem;
   }
 
   .xl\:ml-32 {
@@ -1151,6 +1176,12 @@ a{
 
   .\32xl\:mt-44 {
     margin-top: 11rem;
+  }
+  .\32xl\:mt-16 {
+    margin-top: 4rem;
+  }
+  .\32xl\:mt-20 {
+    margin-top: 5rem;
   }
 
   .\32xl\:h-fit {
