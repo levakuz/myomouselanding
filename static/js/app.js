@@ -66,7 +66,6 @@ var APP = {
 				scene.add(spotLight3)
 				scene.add(gltf.cameras[0])
 				if (window.screen.width >= 1700){
-					// player.setSize( 840, 640);
 					renderer.setSize(600, 600)
 				}
 				else
