@@ -9,20 +9,24 @@ async function send_form_data(){
 	let name
 	let phone
 	let email
+	let comment
 	console.log(window.screen.width )
 	if (window.screen.width >= 1024){
 		name = document.getElementById('name')
 		phone = document.getElementById('phone')
 		email = document.getElementById('email')
+		comment = document.getElementById('comment')
 	}
 	else{
 		name = document.getElementById('name_mobile')
 		phone = document.getElementById('phone_mobile')
 		email = document.getElementById('email_mobile')
+		comment = document.getElementById('comment_mobile')
 	}
+	console.log(comment)
 	fetch('http://localhost:8000/form_data', {
 		method: 'POST',
-		body: JSON.stringify({name:name.value, phone: phone.value, email: email.value}),
+		body: JSON.stringify({name:name.value, phone: phone.value, email: email.value, comment: comment.value}),
 		headers: {'Content-Type': 'application/json;charset=utf-8'}
 	})
 }

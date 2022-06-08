@@ -6,12 +6,22 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi_mail import FastMail, MessageSchema,ConnectionConfig
+from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+origins = ['*']
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 conf = ConnectionConfig(
-    MAIL_USERNAME = "levakuz@yandex.ru",
-    MAIL_PASSWORD = "ashrjtxthqrfggyl",
+    MAIL_USERNAME = "innovation@rufilms-avt.com",
+    MAIL_PASSWORD = "hixhxsnqfkwpnlbw",
     MAIL_FROM = " innovation@rufilms-avt.com",
     MAIL_PORT = 465,
     MAIL_SERVER = "smtp.yandex.ru",
@@ -63,9 +73,9 @@ async def get_form(request: Request):
     )
     fm = FastMail(conf)
     await fm.send_message(message)
-    html = f'Поступил запрос на обратную связь. \n\n Данные клиента: \n Имя:{data["name"]},\n Телефон: {data["phone"]},\n Email: {data["email"]}. '
+    html = f'Поступил запрос на обратную связь. \n\n Данные клиента: \n Имя:{data["name"]},\n Телефон: {data["phone"]},\n Email: {data["email"]}, \n Комментарий к заказу: {data["comment"]}. '
     message = MessageSchema(
-        subject="Обратная связь",
+        subject="Обратная связь MyoMouse",
         recipients=[conf.MAIL_USERNAME],  # List of recipients, as many as you can pass
         body=html,
         subtype="string"
