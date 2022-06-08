@@ -37,6 +37,7 @@ var APP = {
 				console.log(gltf.scene)
 				scene.add( gltf.scene );
 
+
 				gltf.animations; // Array<THREE.AnimationClip>
 				gltf.scene; // THREE.Group
 				gltf.scenes; // Array<THREE.Group>
@@ -89,9 +90,9 @@ var APP = {
 				camera.filmGauge = 35
 				camera.filmOffset = 0
 				camera.updateProjectionMatrix();
-				console.log(camera)
 				controls = new OrbitControls( camera, renderer.domElement );
-				controls.update()
+				controls.autoRotate = true
+				renderer.domElement.addEventListener('click', stopAnimation)
 				animate()
 
 			},
@@ -203,7 +204,10 @@ var APP = {
 		};
 
 		//
+		 function stopAnimation () {
+			controls.autoRotate = !controls.autoRotate
 
+		}
 		function onKeyDown( event ) {
 
 			dispatch( events.keydown, event );
@@ -229,43 +233,75 @@ var APP = {
 		}
 
 		function onPointerMove( event ) {
-
+			console.log(123123)
 			dispatch( events.pointermove, event );
 
 		}
 		var white_line_button = document.getElementById('white-line-button')
 		white_line_button.addEventListener('click', function (){chagelinesColor('white')})
+		var white_line_button_mobile = document.getElementById('white-line-button-mobile')
+		white_line_button_mobile.addEventListener('click', function (){chagelinesColor('white')})
 		var grey_line_button = document.getElementById('grey-line-button')
 		grey_line_button.addEventListener('click', function (){chagelinesColor('grey')})
+		var grey_line_button_mobile = document.getElementById('grey-line-button-mobile')
+		grey_line_button_mobile.addEventListener('click', function (){chagelinesColor('grey')})
 		var black_line_button = document.getElementById('black-line-button')
 		black_line_button.addEventListener('click', function (){chagelinesColor('black')})
+		var black_line_button_mobile = document.getElementById('black-line-button-mobile')
+		black_line_button_mobile.addEventListener('click', function (){chagelinesColor('black')})
 		var blue_line_button = document.getElementById('blue-line-button')
 		blue_line_button.addEventListener('click', function (){chagelinesColor('blue')})
+		var blue_line_button_mobile = document.getElementById('blue-line-button-mobile')
+		blue_line_button_mobile.addEventListener('click', function (){chagelinesColor('blue')})
 		var green_line_button = document.getElementById('green-line-button')
 		green_line_button.addEventListener('click', function (){chagelinesColor('green')})
+		var green_line_button_mobile = document.getElementById('green-line-button-mobile')
+		green_line_button_mobile.addEventListener('click', function (){chagelinesColor('green')})
 		var red_line_button = document.getElementById('red-line-button')
 		red_line_button.addEventListener('click', function (){chagelinesColor('red')})
+		var red_line_button_mobile = document.getElementById('red-line-button-mobile')
+		red_line_button_mobile.addEventListener('click', function (){chagelinesColor('red')})
 		var orange_line_button = document.getElementById('orange-line-button')
 		orange_line_button.addEventListener('click', function (){chagelinesColor('orange')})
+		var orange_line_button_mobile = document.getElementById('orange-line-button-mobile')
+		orange_line_button_mobile.addEventListener('click', function (){chagelinesColor('orange')})
 		var yellow_line_button = document.getElementById('yellow-line-button')
 		yellow_line_button.addEventListener('click', function (){chagelinesColor('yellow')})
+		var yellow_line_button_mobile = document.getElementById('yellow-line-button-mobile')
+		yellow_line_button_mobile.addEventListener('click', function (){chagelinesColor('yellow')})
 
 		var white_band_button = document.getElementById('white-band-button')
 		white_band_button.addEventListener('click', function (){chagebracerColor('white')})
+		var white_band_button_mobile = document.getElementById('white-band-button-mobile')
+		white_band_button_mobile.addEventListener('click', function (){chagebracerColor('white')})
 		var grey_band_button = document.getElementById('grey-band-button')
 		grey_band_button.addEventListener('click', function (){chagebracerColor('grey')})
+		var grey_band_button_mobile = document.getElementById('grey-band-button-mobile')
+		grey_band_button_mobile.addEventListener('click', function (){chagebracerColor('grey')})
 		var black_band_button = document.getElementById('black-band-button')
 		black_band_button.addEventListener('click', function (){chagebracerColor('black')})
+		var black_band_button_mobile = document.getElementById('black-band-button-mobile')
+		black_band_button_mobile.addEventListener('click', function (){chagebracerColor('black')})
 		var blue_band_button = document.getElementById('blue-band-button')
 		blue_band_button.addEventListener('click', function (){chagebracerColor('blue')})
+		var blue_band_button_mobile = document.getElementById('blue-band-button-mobile')
+		blue_band_button_mobile.addEventListener('click', function (){chagebracerColor('blue')})
 		var green_band_button = document.getElementById('green-band-button')
 		green_band_button.addEventListener('click', function (){chagebracerColor('green')})
+		var green_band_button_mobile = document.getElementById('green-band-button-mobile')
+		green_band_button_mobile.addEventListener('click', function (){chagebracerColor('green')})
 		var red_band_button = document.getElementById('red-band-button')
 		red_band_button.addEventListener('click', function (){chagebracerColor('red')})
+		var red_band_button_mobile = document.getElementById('red-band-button-mobile')
+		red_band_button_mobile.addEventListener('click', function (){chagebracerColor('red')})
 		var orange_band_button = document.getElementById('orange-band-button')
 		orange_band_button.addEventListener('click', function (){chagebracerColor('orange')})
+		var orange_band_button_mobile = document.getElementById('orange-band-button-mobile')
+		orange_band_button_mobile.addEventListener('click', function (){chagebracerColor('orange')})
 		var yellow_band_button = document.getElementById('yellow-band-button')
 		yellow_band_button.addEventListener('click', function (){chagebracerColor('yellow')})
+		var yellow_band_button_mobile = document.getElementById('yellow-band-button-mobile')
+		yellow_band_button_mobile.addEventListener('click', function (){chagebracerColor('yellow')})
 
 		const colors = {
 			white: '0xffffff',
