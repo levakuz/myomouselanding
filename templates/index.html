@@ -11,7 +11,7 @@
 <body class="bg-black" style="box-sizing: border-box">
 <div class="content " style="box-sizing: border-box; overflow-y: hidden">
     <div class="h-16 items-center flex flex-row mt-2 relative">
-        <img src="{{ url_for('static',path="/logo.png")}}" class="z-0 logo ml-0 xl:ml-64 w-8 h-8 mt-5" style="width: 4rem; height: 5rem"/>
+        <img src="{{ url_for('static',path="/logo.png")}}" class="z-0 logo ml-0 lg:ml-16 xl:ml-64 w-8 h-8 mt-5" style="width: 4rem; height: 5rem"/>
         <div class="absolute right-0 ml-0 z-1 gradient-bg-pink"></div>
         <nav class="hidden sm:inline-flex flex-row  items-center justify-end absolute right-0 z-10" style="justify-self: flex-end">
             <a class="xl:text-base text-white mr-10 hover:underline" href="#how-it-works">{{ How_it_works }}</a>
@@ -27,15 +27,23 @@
         </nav>
     </div>
     <section id="home" class="z-0  items-center h-fit lg:h-screen">
-        <div class=" flex flex-col sm:flex-row mt-0 sm:mt-5 items-center lg:ml-32  xl:ml-64 xl:mr-64 ">
+        <div class=" flex flex-col sm:flex-row mt-0 sm:mt-5 items-center mr-10 xl:ml-64 xl:mr-64 ">
             <div class=" lg:w-1/2 flex flex-col z-10 lg:items-baseline items-center justify-center lg:ml-20">
                 <h1 class="text-left text-5xl xl:text-8xl text-white font-bold z-10">MyoMouse</h1>
                 <p class="text-center sm:text-left w-full text-base 2xl:text-base text-white mt-7 p-0">{{ Main_description }}</p>
-                <button class="w-32 h-7 xl:w-32 xl:h-11 mt-10 button-gradient hover:bg-transparent items-center justify-center" >
-                    <a href="#form_section" class="text-sm xl:text-base animate-pulse hover:text-white text-custom-blue ">
-                        {{ order }}
+                <div class="flex flex-row justify-between w-full">
+
+                    <a href="#form_section" class=" flex w-32 h-7 xl:w-32 xl:h-11 mt-10 button-gradient hover:bg-transparent items-center justify-center" >
+                        <span  class="text-sm xl:text-base animate-pulse hover:text-white text-custom-blue ">
+                            {{ order }}
+                        </span>
                     </a>
-                </button>
+                    <a href="#form_section" class="flex w-1/2 h-7  xl:h-11 mt-10 button-gradient hover:bg-transparent items-center justify-center" >
+                        <span  class="text-sm xl:text-base animate-pulse hover:text-white text-custom-blue ">
+                            {{ Integration_order }}
+                        </span>
+                    </a>
+                </div>
             </div>
             <div class="flex flex-col items-center">
                 <div class="flex flex-row">
@@ -112,10 +120,10 @@
 <!--        </div>-->
         <img src="../static/mm.png" class="mt-10 absolute -z-1" style="width: 30rem; height: 30rem; opacity: 0.5">
     </section>
-    <section id="how_it_possible" class="h-fit lg:h-screen relative mt-20 items-center">
+    <section id="how_it_possible" class="h-fit xl:h-screen relative mt-20 items-center">
         <h2 class="2xl:mt-32 text-white z-10 text-center">{{ How_it_possible }}</h2>
         <div class="absolute gradient-bg-blue z-10"></div>
-        <div class="flex flex-col ml-2 mr-2 mt-10 mt-20 lg:ml-20 2xl:ml-32 lg:mr-24 items-center">
+        <div class="flex flex-col ml-2 mr-2 mt-10 lg:ml-20 2xl:ml-32 lg:mr-24 items-center">
             <h3 class=" mt-10 lg:w-1/2 text-white text-center">{{ How_it_possible_subheader1 }}</h3>
             <div class="grid grid-cols-2 gap-6 lg:w-1/2 mt-5">
                 <p class=" text-white z-10" style="white-space: pre-wrap;">{{ How_it_possible_descr1 }}
@@ -131,7 +139,7 @@
             </div>
         </div>
     </section>
-    <section id="application-area" class="h-fit relative ">
+    <section id="application-area" class="h-fit relative  mt-20">
         <h2 class=" mt-10 text-white z-10">{{ Application_area }}</h2>
         <div class="gradient-bg-pink z-1 absolute right-0"></div>
         <div class=" hidden lg:grid lg:grid-cols-2 gap-6 2xl:gap-44 mt-10 2xl:mt-40 lg:ml-24 2xl:ml-32 lg:mr-32 items-center">
@@ -246,7 +254,7 @@
         <div class="lg:w-1/2 lg:h-1/2 gradient-bg-pink z-1 absolute  bottom-0 right-0 xl:pt-64"></div>
     </section>
     <section id="form_section" class="flex flex-col items-center bg-white z-10 xl:h-2/6">
-        <div class="mt-24 xl:ml-32 xl:mr-32 xl:mb-24 flex flex-col">
+        <div class="mt-24  lg:ml-32 lg:mr-32 xl:mb-24 flex flex-col">
             <div class="flex flex-col">
                 <h3 class="text-black text-xl xl:text-2xl text-center xl:text-left">{{ form_header }} </h3>
             </div>
